@@ -21,10 +21,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header>NINJA TURTLES</header>
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
-        <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
-        <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
-
+        <Route path='/signup' render={(props) => (
+          <SignupForm {...props} />
+        )
+        } />
+        <Route path='/login' render={(props) => (
+          <LoginPage {...props} />
+        )
+        } />
       </div>
     );
   }
