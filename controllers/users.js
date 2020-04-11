@@ -8,8 +8,10 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
+
   try {
     await user.save();
+    console.log('hello')
     // Be sure to first delete data that should not be in the token
     const token = createJWT(user);
     console.log(token);

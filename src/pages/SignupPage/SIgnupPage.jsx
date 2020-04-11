@@ -1,25 +1,20 @@
-import React, { Component } from "react";
-import SignupForm from "../../components/SignupForm/SignupForm";
-import "./SignupPage.css";
-
-class SignupPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: "" };
+import React, { component } from 'react';
+import userService from '../../utils/userService';
+import { Component } from 'react';
+class SignupForm extends Component {
+  state = {
+    name: '',
+    email: '',
+    password: '',
   }
-
-  updateMessage = (msg) => {
-    this.setState({ message: msg });
-  };
-
   render() {
     return (
-      <div className="SignupPage">
-        <SignupForm {...this.props} updateMessage={this.updateMessage} />
-        <p>{this.state.message}</p>
-      </div>
+      <form>
+        <input type="text" name="name" placeholder="name" />
+        <input type="text" name="email" placeholder="email" />
+        <input type="text" name="password" placeholder="password" />
+      </form>
     );
   }
 }
-
-export default SignupPage;
+export default SignupForm;

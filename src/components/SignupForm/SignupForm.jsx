@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import userService from '../../utils/userService'
+
 class SignupForm extends Component {
     state = {
         name: '',
         email: '',
         password: '',
     }
+
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
+
     handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -19,6 +22,7 @@ class SignupForm extends Component {
             console.log(err)
         }
     }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -30,4 +34,5 @@ class SignupForm extends Component {
         )
     }
 }
+
 export default SignupForm;
