@@ -97,7 +97,7 @@ class App extends React.Component {
   }
 
   getResults() {
-    const answerCount = this.stateanswerCount;
+    const answerCount = this.state.answerCount;
     const answerCountKeys = Object.keys(answerCount);
     const answerCountValues = answerCountKeys.map((key) => answerCount[key])
     const maxAnswerCount = Math.max.apply(null, answerCountValues);
