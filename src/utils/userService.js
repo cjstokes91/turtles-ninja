@@ -19,9 +19,14 @@ function signup(user) {
       })
   );
 }
+
+function getUser() {
+  return tokenService.getUserFromToken();
+}
 // the above could have been written as
 //.then((token) => token.token);
 
 export default {
   signup,
+  getUser,
 };
