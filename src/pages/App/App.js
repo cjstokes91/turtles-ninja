@@ -8,6 +8,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import Questions from '../../components/Questions/Questions'
 import QuizQuestions from '../../QuizQuestions/QuizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
+import Result from '../../components/Result/Result';
 
 class App extends React.Component {
 
@@ -113,6 +114,7 @@ class App extends React.Component {
     }
   }
 
+
   render() {
     return (
       <div className="App">
@@ -135,8 +137,9 @@ class App extends React.Component {
           questionTotal={QuizQuestions.length}
           onAnswerSelected={this.handleAnswerSelected}
         />
+        <Result quizResult={this.state.result} />
       </div>
     );
   }
 }
-export default App;
+export default App; 
