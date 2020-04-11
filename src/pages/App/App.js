@@ -7,11 +7,14 @@ import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import Questions from '../../components/Questions/Questions'
 import QuizQuestions from '../../QuizQuestions/QuizQuestions';
+import Quiz from '../../components/Quiz/Quiz';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+
   }
   state = {
     user: userService.getUser(),
@@ -61,6 +64,55 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() })
   }
 
+  setUserAnswer(answer) {
+    this.setState((state) => ({
+      answersCount: {
+        ...state.answersCount,
+        [answer]: (state.answersCount[answer] || 0) + 1
+      },
+      answer: answer
+    }))
+  }
+
+  setNextQuestion() {
+    const counter = this.state.counter + 1;
+    const questionId = this.state.questionId + 1;
+
+    this.setState({
+      counter: counter,
+      questionId: questionId,
+      question: QuizQuestions[counter].question,
+      answerOptions: QuizQuestions[counter].answers,
+      answer: ''
+    })
+  }
+
+  handleAnswerSelected(event) {
+    this.setUserAnswer(event.currentTarget.value);
+    if (this.state.QuestionId < QuizQuestions.length) {
+      setTimeout(() => this.setNextQuestion(), 300);
+    } else {
+      setTimeout(() => this.setResults(this.getResults()), 300);
+    }
+  }
+
+  getResults() {
+    const answerCount = this.stateanswerCount;
+    const answerCountKeys = Object.keys(answerCount);
+    const answerCountValues = answerCountKeys.map((key) => answerCount[key])
+    const maxAnswerCount = Math.max.apply(null, answerCountValues);
+
+    return answerCountKeys.filter((key) => answerCount[key] === maxAnswerCount);
+  }
+
+  setResults(result) {
+    if (result.length === 1) {
+      this.setState({ result: result[0] })
+    } else {
+      this.setState({ result: 'Not sure who you are' })
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -75,6 +127,14 @@ class App extends React.Component {
           <LoginPage {...props} />
         )
         } />
+        <Quiz
+          answer={this.state.answer}
+          answerOptions={this.state.answerOptions}
+          questionId={this.state.questionId}
+          question={this.state.question}
+          questionTotal={QuizQuestions.length}
+          onAnswerSelected={this.handleAnswerSelected}
+        />
       </div>
     );
   }
