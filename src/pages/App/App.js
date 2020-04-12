@@ -98,12 +98,12 @@ class App extends React.Component {
   }
 
   getResults() {
-    const answerCount = this.state.answerCount;
-    const answerCountKeys = Object.keys(answerCount);
-    const answerCountValues = answerCountKeys.map((key) => answerCount[key])
-    const maxAnswerCount = Math.max.apply(null, answerCountValues);
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
-    return answerCountKeys.filter((key) => answerCount[key] === maxAnswerCount);
+    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
   }
 
   setResults(result) {
@@ -121,12 +121,12 @@ class App extends React.Component {
         <header>NINJA TURTLES</header>
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Questions content="what is your favorite food?" />
-        <Route path='/signup' render={(props) => (
-          <SignupForm {...props} />
+        <Route path='/signup' render={() => (
+          <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
         )
         } />
-        <Route path='/login' render={(props) => (
-          <LoginPage {...props} />
+        <Route path='/login' render={() => (
+          <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
         )
         } />
         <Quiz

@@ -13,17 +13,25 @@ class LoginPage extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.login(this.state)
+      await userService.login(this.state);
+      // Let <App> know a user has signed up!
       this.props.handleSignupOrLogin();
+      this.setState({
+        email: '',
+        pw: ''
+      })
+      // Successfully signed up - show GamePage
+      // this.props.history.push('/');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       alert('Invalid Credentials!');
+      console.log(err)
     }
   }
-
   render() {
     return (
       <div className="LoginPage">
@@ -36,7 +44,7 @@ class LoginPage extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              <input handleSubmit={this.handleSubmit} type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
