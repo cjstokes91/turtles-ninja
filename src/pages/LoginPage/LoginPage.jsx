@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import userService from '../../utils/userService';
 
 class LoginPage extends Component {
@@ -8,7 +8,6 @@ class LoginPage extends Component {
     email: '',
     pw: ''
   };
-
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -24,8 +23,9 @@ class LoginPage extends Component {
         email: '',
         pw: ''
       })
+
       // Successfully signed up - show GamePage
-      // this.props.history.push('/');
+      this.props.history.push('/quiz');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       alert('Invalid Credentials!');
@@ -44,12 +44,12 @@ class LoginPage extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input handleSubmit={this.handleSubmit} type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+              <button className="btn btn-default" to='/' >Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
           </div>
@@ -59,4 +59,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage
+export default withRouter(LoginPage);

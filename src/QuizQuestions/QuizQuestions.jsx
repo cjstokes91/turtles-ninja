@@ -5,7 +5,6 @@ let quizQuestions = [
             {
                 type: "Leonardo",
                 content: "sweet red onions, black olives, green peppers, mushrooms; Raphael: pepperoni, sausage"
-
             },
             {
                 type: "Raphael",

@@ -120,24 +120,32 @@ class App extends React.Component {
       <div className="App">
         <header>NINJA TURTLES</header>
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
-        <Questions content="what is your favorite food?" />
-        <Route path='/signup' render={() => (
-          <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
-        )
-        } />
-        <Route path='/login' render={() => (
-          <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
-        )
-        } />
-        <Quiz
-          answer={this.state.answer}
-          answerOptions={this.state.answerOptions}
-          questionId={this.state.questionId}
-          question={this.state.question}
-          questionTotal={QuizQuestions.length}
-          onAnswerSelected={this.handleAnswerSelected}
-        />
-        <Result quizResult={this.state.result} />
+        <Switch>
+          <Route path='/signup' render={() => (
+            <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
+          )
+          } />
+          <Route path='/login' render={() => (
+            <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
+          )
+          } />
+          <Route path='/quiz' render={() => (
+            <Quiz
+              answer={this.state.answer}
+              answerOptions={this.state.answerOptions}
+              questionId={this.state.questionId}
+              question={this.state.question}
+              questionTotal={QuizQuestions.length}
+              onAnswerSelected={this.handleAnswerSelected}
+            />
+          )} />
+        </Switch>
+        {
+          this.state.result ? <Result quizResult={this.state.result} /> : ''
+
+        }
+
+
       </div>
     );
   }

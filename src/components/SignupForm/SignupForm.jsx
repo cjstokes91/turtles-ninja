@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import userService from '../../utils/userService'
 class SignupForm extends Component {
     state = {
@@ -33,6 +34,7 @@ class SignupForm extends Component {
                 <input value={this.state.email} type='email' name='email' placeholder='email' onChange={this.handleChange} />
                 <input value={this.state.password} type='password' name='password' placeholder='password' onChange={this.handleChange} />
                 <input type='submit'></input>
+                <Link to='/'>Cancel</Link>
             </form>
         )
     }
