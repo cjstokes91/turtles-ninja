@@ -29,11 +29,11 @@ class SignupForm extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className='form-group' onSubmit={this.handleSubmit}>
                 Sign Up
-                <input value={this.state.name} type='text' name='name' placeholder='name' onChange={this.handleChange} />
-                <input value={this.state.email} type='email' name='email' placeholder='email' onChange={this.handleChange} />
-                <input value={this.state.password} type='password' name='password' placeholder='password' onChange={this.handleChange} />
+                <input className='form-group' value={this.state.name} type='text' name='name' placeholder='name' onChange={this.handleChange} />
+                <input className='form-group' value={this.state.email} type='email' name='email' placeholder='email' onChange={this.handleChange} />
+                <input className='form-group' value={this.state.password} type='password' name='password' placeholder='password' onChange={this.handleChange} />
                 <input type='submit'></input>
                 <Link to='/'>Cancel</Link>
             </form>

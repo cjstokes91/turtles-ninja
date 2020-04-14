@@ -3,7 +3,7 @@ import './App.css';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import userService from '../../utils/userService';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar'
 import LoginPage from '../LoginPage/LoginPage';
 import QuizQuestions from '../../QuizQuestions/QuizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
@@ -118,13 +118,12 @@ class App extends React.Component {
     if (result.length === 1) {
       this.setState({ result: newResult[0] })
     } else {
-      this.setState({ result: 'Not sure , probably a basic foot clan soldier' })
+      this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }
   }
 
   showCharacter = () => {
     this.props.history.push('/character')
-    //function to han   dle showing detail page of result: character 
   }
 
   render() {
