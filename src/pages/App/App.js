@@ -5,7 +5,6 @@ import userService from '../../utils/userService';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
-import Questions from '../../components/Questions/Questions'
 import QuizQuestions from '../../QuizQuestions/QuizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
@@ -28,9 +27,12 @@ class App extends React.Component {
     result: ''
 
   }
-  componentDidMount() {
-    const shuffledAnswerOptions = QuizQuestions.map((question) => this.shuffleArray(question.answers));
 
+  componentDidMount() {
+    console.log(QuizQuestions)
+    const shuffledAnswerOptions = QuizQuestions.map(question =>
+      this.shuffleArray(question.answers)
+    );
     this.setState({
       question: QuizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
@@ -86,12 +88,16 @@ class App extends React.Component {
       answerOptions: QuizQuestions[counter].answers,
       answer: ''
     })
+    console.log(this.state)
   }
 
-  handleAnswerSelected(event) {
+  handleAnswerSelected = (event) => {
+    console.log('hitting answer Selcected', this.state.questionId)
     this.setUserAnswer(event.currentTarget.value);
-    if (this.state.QuestionId < QuizQuestions.length) {
-      setTimeout(() => this.setNextQuestion(), 300);
+    if (this.state.questionId < QuizQuestions.length) {
+      // setTimeout(() => this.setNextQuestion(), 300);
+      console.log('hitting if')
+      this.setNextQuestion()
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
     }
@@ -114,8 +120,8 @@ class App extends React.Component {
     }
   }
 
-
   render() {
+    console.log(this.state.counter)
     return (
       <div className="App">
         <header>NINJA TURTLES</header>
@@ -130,6 +136,7 @@ class App extends React.Component {
           )
           } />
           <Route path='/quiz' render={() => (
+
             <Quiz
               answer={this.state.answer}
               answerOptions={this.state.answerOptions}
@@ -137,6 +144,8 @@ class App extends React.Component {
               question={this.state.question}
               questionTotal={QuizQuestions.length}
               onAnswerSelected={this.handleAnswerSelected}
+              setNextQuestion={this.setNextQuestion}
+              counter={this.state.counter}
             />
           )} />
         </Switch>
@@ -144,8 +153,6 @@ class App extends React.Component {
           this.state.result ? <Result quizResult={this.state.result} /> : ''
 
         }
-
-
       </div>
     );
   }

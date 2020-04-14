@@ -3,6 +3,7 @@ let quizQuestions = [
         question: "Whats your favorite pizza topping?",
         answers: [
             {
+
                 type: "Leonardo",
                 content: "sweet red onions, black olives, green peppers, mushrooms; Raphael: pepperoni, sausage"
             },
