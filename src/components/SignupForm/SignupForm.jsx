@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import userService from '../../utils/userService'
 class SignupForm extends Component {
     state = {
@@ -12,6 +12,7 @@ class SignupForm extends Component {
     }
     handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
             await userService.signup(this.state)
             this.props.handleSignupOrLogin();
@@ -20,7 +21,7 @@ class SignupForm extends Component {
                 email: '',
                 password: '',
             })
-            this.props.history.push('/');
+            this.props.history.push('/quiz');
         }
         catch (err) {
             console.log(err)
@@ -39,4 +40,4 @@ class SignupForm extends Component {
         )
     }
 }
-export default SignupForm;
+export default withRouter(SignupForm);

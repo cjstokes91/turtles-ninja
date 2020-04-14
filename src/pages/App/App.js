@@ -134,16 +134,16 @@ class App extends React.Component {
         <header>NINJA TURTLES</header>
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
-          <Route path='/signup' render={() => (
+          <Route exact path='/signup' render={() => (
             <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
-          <Route path='/login' render={() => (
+          <Route exact path='/login' render={() => (
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
           )
-          <Route path='/quiz' render={() => (
+          <Route exact path='/quiz' render={() => (
 
             <Quiz
               answer={this.state.answer}
