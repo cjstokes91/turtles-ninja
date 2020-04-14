@@ -19,7 +19,7 @@ function Quiz(props) {
     }
     console.log(props.counter)
     return (
-        <div className="quiz">
+        <div className={props.result ? 'hidden' : 'quiz'}>
             <QuestionCount
                 counter={props.counter}
                 total={props.questionTotal}

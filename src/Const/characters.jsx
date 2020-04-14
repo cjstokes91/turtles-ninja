@@ -1,16 +1,3 @@
-import React, { Component } from 'react';
-
-
-class Character extends Component {
-    state = {
-        name: '',
-        age: '',
-        weapon: '',
-        personality: ''
-
-    }
-}
-
 const turtleCharacters = [{ name: 'Leonardo', age: 17, weapon: 'Sword', personality: 'Strong Leader' },
 { name: 'Donatello', age: 17, weapon: 'Bo Staff', personality: 'Smart Quite, Introvert' },
 { name: 'Michelangelo', age: 17, weapon: 'Nunchuks', personality: 'Loud Silly , Center of attention in a fun way' },
@@ -23,6 +10,4 @@ const turtleCharacters = [{ name: 'Leonardo', age: 17, weapon: 'Sword', personal
 { name: 'RockSteady', age: 24, weapon: 'Rock Head', personality: 'Russian arms dealer, with a soft-side' },
 ]
 
-
-
-export default Character; 
+export default turtleCharacters; 

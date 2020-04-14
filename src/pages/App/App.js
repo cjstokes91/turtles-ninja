@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import userService from '../../utils/userService';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import LoginPage from '../LoginPage/LoginPage';
 import QuizQuestions from '../../QuizQuestions/QuizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
+import turtleCharacters from '../../Const/characters'
 
 class App extends React.Component {
 
@@ -113,11 +114,17 @@ class App extends React.Component {
   }
 
   setResults(result) {
+    const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
-      this.setState({ result: result[0] })
+      this.setState({ result: newResult[0] })
     } else {
-      this.setState({ result: 'Not sure who you are' })
+      this.setState({ result: 'Not sure , probably a basic foot clan soldier' })
     }
+  }
+
+  showCharacter = () => {
+    this.props.history.push('/character')
+    //function to han   dle showing detail page of result: character 
   }
 
   render() {
@@ -135,6 +142,7 @@ class App extends React.Component {
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
+          )
           <Route path='/quiz' render={() => (
 
             <Quiz
@@ -146,6 +154,7 @@ class App extends React.Component {
               onAnswerSelected={this.handleAnswerSelected}
               setNextQuestion={this.setNextQuestion}
               counter={this.state.counter}
+              result={this.state.result}
             />
           )} />
         </Switch>
@@ -157,4 +166,4 @@ class App extends React.Component {
     );
   }
 }
-export default App; 
+export default withRouter(App); 
