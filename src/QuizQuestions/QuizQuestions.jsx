@@ -135,7 +135,7 @@ let quizQuestions = [
             },
             {
                 type: "Leonardo",
-                content: "NHL"
+                content: "NFL"
 
             },
             {
