@@ -117,11 +117,14 @@ class App extends React.Component {
   }
 
   async setResults(result) {
+
     const newResult = turtleCharacters.filter(character => character.name === result[0])
+    console.log(newResult)
     if (result.length === 1) {
+      await resultService.newResults(newResult[0])
       this.setState({ result: newResult[0] })
-      await resultService.newResults()
-      console.log(this.state.user)
+
+      // console.log(this.state.user)
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }

@@ -1,17 +1,11 @@
-import React from 'react';
+// import React from 'react';
 
+// function newResults() {
+//     return (
+//         <div>
+//             hey
+//         </div>
+//     )
+// }
 
-
-
-function newResults(props) {
-    return (
-        <h1>
-            Quiz Results:
-            {props.quizResult.name}
-            {/* key={quizResult._id} */}
-            {/* character={props.quizResult.name} */}
-        </h1>
-    )
-}
-
-export default newResults;
+// export default newResults;
