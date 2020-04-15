@@ -117,10 +117,13 @@ class App extends React.Component {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
       this.setState({ result: newResult[0] })
+      this.state.user.quizResult.character = newResult[0]
+      console.log(this.state.user)
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }
   }
+
 
   showCharacter = () => {
     this.props.history.push('/character')
