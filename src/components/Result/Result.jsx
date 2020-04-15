@@ -25,6 +25,9 @@ function Result(props) {
             <div>
                 <img src={props.quizResult.img} />
             </div>
+            <div>
+
+            </div>
 
         </div>
     )

@@ -10,6 +10,7 @@ import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
 import turtleCharacters from '../../Const/characters'
 import resultService from '../../utils/resultService'
+import NewResults from '../NewResults/NewResults'
 
 class App extends React.Component {
 
@@ -146,6 +147,9 @@ class App extends React.Component {
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
+          <Route exact path='/newresut' render={() => (
+            <NewResults />
+          )} />
           <Route exact path='/quiz' render={() => (
 
             <Quiz

@@ -6,9 +6,8 @@ module.exports = {
 }
 
 async function newResults(req, res) {
-    console.log('hello from rescontrller', req.body)
-    res.json({ data: 'hello' })
-
+    const result = await quizResult.create(req.body);
+    res.status(201).json(result)
 }
 
 
