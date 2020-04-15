@@ -9,6 +9,7 @@ import QuizQuestions from '../../QuizQuestions/QuizQuestions';
 import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
 import turtleCharacters from '../../Const/characters'
+import resultService from '../../utils/resultService'
 
 class App extends React.Component {
 
@@ -25,7 +26,8 @@ class App extends React.Component {
     answerOptions: [],
     answer: '',
     answersCount: {},
-    result: ''
+    result: '',
+
 
   }
 
@@ -113,11 +115,11 @@ class App extends React.Component {
     return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
   }
 
-  setResults(result) {
+  async setResults(result) {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
       this.setState({ result: newResult[0] })
-      this.state.user.quizResult.character = newResult[0]
+      await resultService.newResults()
       console.log(this.state.user)
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
@@ -144,7 +146,6 @@ class App extends React.Component {
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
-          )
           <Route exact path='/quiz' render={() => (
 
             <Quiz

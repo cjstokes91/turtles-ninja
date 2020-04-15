@@ -6,20 +6,20 @@ function Result(props) {
             <div>
                 COWABUNGA!!!! you are most like
             </div>
-            <strong>{props.quizResult.name}</strong>
+            <strong>Name: {props.quizResult.name}</strong>
             <div>
                 <strong>
-                    {props.quizResult.age}
+                    Age: {props.quizResult.age}
                 </strong>
             </div>
             <div>
                 <strong>
-                    {props.quizResult.weapon}
+                    Favorite Weapon: {props.quizResult.weapon}
                 </strong>
             </div>
             <div>
                 <strong>
-                    {props.quizResult.personality}
+                    Personality Type: {props.quizResult.personality}
                 </strong>
             </div>
             <div>
