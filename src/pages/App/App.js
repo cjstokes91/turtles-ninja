@@ -133,6 +133,7 @@ class App extends React.Component {
   }
   showCharacter = () => {
     this.props.history.push('/character')
+    console.log(this.showCharacter)
   }
   render() {
     console.log(this.state.counter)
@@ -150,7 +151,7 @@ class App extends React.Component {
           )
           } />
           <Route exact path='/myresults' render={() => (
-            <MyResults quizResult={this.state.result} />
+            <Result quizResult={this.state.result} />
           )} />
           <Route exact path='/quiz' render={() => (
 
@@ -163,14 +164,10 @@ class App extends React.Component {
               onAnswerSelected={this.handleAnswerSelected}
               setNextQuestion={this.setNextQuestion}
               counter={this.state.counter}
-              result={this.state.result}
+            // result={this.state.result}
             />
           )} />
         </Switch>
-        {
-          this.state.result ? <Result quizResult={this.state.result} /> : ''
-
-        }
       </div>
     );
   }

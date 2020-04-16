@@ -13,7 +13,7 @@ const NavBar = (props) => {
                 <Link to='/quiz' className='quiz'>Take Quiz</Link>
 
             </div>
-            <Link to='/character' className='character-page'> Character page</Link>
+            <Link to='/' className='character-page'>Home</Link>
         </div>
         :
         <div>
