@@ -1,7 +1,7 @@
 const quizResult = require('../models/quizResult');
 
 module.exports = {
-    // index,
+    index,
     newResults,
     getResults
     //     deleteOne
@@ -11,10 +11,10 @@ async function newResults(req, res) {
     const result = await quizResult.create(req.body)
     res.status(201).json(result)
 }
-// async function index(req, res) {
-//     const quizResults = await quizResult.find({ user: req.user._id });
-//     res.status(200).json(quizResults);
-// }
+async function index(req, res) {
+    const quizResults = await quizResult.find({ user: req.user._id });
+    res.status(200).json(quizResults);
+}
 
 async function getResults(req, res) {
     try {

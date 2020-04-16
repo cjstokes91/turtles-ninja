@@ -54,8 +54,14 @@ class LoginPage extends Component {
               <Link to='/'>Cancel</Link>
             </div>
           </div>
+          <div>
+            <img src={'https://imgur.com/tcMYyd3.jpg'} >
+
+            </img>
+          </div>
         </form>
       </div>
+
     );
   }
 }

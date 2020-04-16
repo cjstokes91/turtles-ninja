@@ -11,6 +11,7 @@ import Result from '../../components/Result/Result';
 import turtleCharacters from '../../Const/characters'
 import resultService from '../../utils/resultService'
 import MyResults from '../MyResults/MyResults'
+import Home from '../Home/Home'
 
 class App extends React.Component {
   constructor(props) {
@@ -99,14 +100,11 @@ class App extends React.Component {
       answerOptions: QuizQuestions[counter].answers,
       answer: ''
     })
-    console.log(this.state)
   }
 
   handleAnswerSelected = (event) => {
-    console.log('hitting answer Selcected', this.state.questionId)
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < QuizQuestions.length) {
-      console.log('hitting if')
       this.setNextQuestion()
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
@@ -133,10 +131,8 @@ class App extends React.Component {
   }
   showCharacter = () => {
     this.props.history.push('/character')
-    console.log(this.showCharacter)
   }
   render() {
-    console.log(this.state.counter)
     return (
       <div className="App">
         <header>NINJA TURTLES</header>
@@ -150,6 +146,9 @@ class App extends React.Component {
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
+          <Route exact path='/home' render={() => (
+            <Home />
+          )} />
           <Route exact path='/myresults' render={() => (
             <Result quizResult={this.state.result} />
           )} />

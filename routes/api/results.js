@@ -13,7 +13,7 @@ function checkAuth(req, res, next) {
     if (req.user) return next();
     return res.status(401).json({ msg: 'Not Authorized' });
 }
-// router.get('/', resultsCtrl.index);
+router.get('/', resultsCtrl.index);
 
 
 module.exports = router;

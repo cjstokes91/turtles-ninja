@@ -3,7 +3,7 @@ body {
   padding: 0;
   background: #eee;
   font-family: sans-serif;
-  background-color: rgb(167, 191, 167);
+  background-color: rgb(139, 136, 136);
   ;
 }
 code {
@@ -66,5 +66,9 @@ code {
   border: 1px solid #bbb;
   border-radius: 50%;
   transition: all 0.3s;
+}
+
+.ninja-logo { 
+  width: 75%;
 }
 
