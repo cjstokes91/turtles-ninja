@@ -16,13 +16,34 @@ const newResults = (results) => {
             body: JSON.stringify(results)
         })
             .then(res => {
-                if (res.ok) return res.json
+                if (res.ok) return res.json()
                 throw new Error('bad call')
             })
             .then(data => console.log(data))
     )
 }
-
+const getResults = (user) => {
+    return (
+        fetch(BASE_URL + '/getresult', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                // Add this header - don't forget the space after Bearer
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => {
+                if (res.ok) return res.json()
+                throw new Error('bad call')
+            })
+            .then(data => {
+                console.log(data)
+                return data.result[0]
+            })
+    )
+}
 export default {
-    newResults
+    newResults,
+    getResults
 }

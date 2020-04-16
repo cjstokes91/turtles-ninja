@@ -13,11 +13,9 @@ import resultService from '../../utils/resultService'
 import MyResults from '../MyResults/MyResults'
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-
   }
   state = {
     user: userService.getUser(),
@@ -28,15 +26,20 @@ class App extends React.Component {
     answer: '',
     answersCount: {},
     result: '',
-
-
   }
 
-  componentDidMount() {
-    console.log(QuizQuestions)
+  async componentDidMount() {
     const shuffledAnswerOptions = QuizQuestions.map(question =>
       this.shuffleArray(question.answers)
     );
+    if (this.state.user) {
+      const results = await resultService.getResults(this.state.user)
+      this.setState({
+        question: QuizQuestions[0].question,
+        answerOptions: shuffledAnswerOptions[0],
+        result: results
+      });
+    }
     this.setState({
       question: QuizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
@@ -45,30 +48,35 @@ class App extends React.Component {
 
   shuffleArray(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   };
 
   handleLogout = () => {
     userService.logout();
-    this.setState({ user: null });
+    this.setState({
+      user: null, counter: 0,
+      questionId: 1,
+      question: '',
+      answerOptions: [],
+      answer: '',
+      answersCount: {},
+      result: '',
+    });
   }
 
-  handleSignupOrLogin = () => {
+  handleSignupOrLogin = async () => {
     this.setState({ user: userService.getUser() })
+    const results = await resultService.getResults(this.state.user)
+    this.setState({
+      result: results
+    })
   }
 
   setUserAnswer(answer) {
@@ -84,7 +92,6 @@ class App extends React.Component {
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
-
     this.setState({
       counter: counter,
       questionId: questionId,
@@ -99,7 +106,6 @@ class App extends React.Component {
     console.log('hitting answer Selcected', this.state.questionId)
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < QuizQuestions.length) {
-      // setTimeout(() => this.setNextQuestion(), 300);
       console.log('hitting if')
       this.setNextQuestion()
     } else {
@@ -118,27 +124,16 @@ class App extends React.Component {
 
   async setResults(result) {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
-    console.log(newResult[0])
-    console.log('this is the New Result')
     if (result.length === 1) {
       await resultService.newResults(newResult[0])
       this.setState({ result: newResult[0] })
-
-      // console.log(this.state.user)
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }
   }
-
-
   showCharacter = () => {
     this.props.history.push('/character')
   }
-
-  showResults = () => {
-
-  }
-
   render() {
     console.log(this.state.counter)
     return (
@@ -155,7 +150,7 @@ class App extends React.Component {
           )
           } />
           <Route exact path='/myresults' render={() => (
-            <MyResults result={this.state.result} />
+            <MyResults quizResult={this.state.result} />
           )} />
           <Route exact path='/quiz' render={() => (
 

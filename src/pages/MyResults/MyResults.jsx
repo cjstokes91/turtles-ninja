@@ -1,16 +1,15 @@
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import resultService from '../../utils/resultService';
+import React from 'react';
 
-
-
-// class myResults extends Component {
-
-//     async componentDidMount() {
-//         const userResults = await resultService.index();
-//         this.props.(userResults);
-//     }
-
-
-// }
-// export default myResults; 
+function myResults(props) {
+    return (
+        <div className='myresults'>
+            <div>
+                as a logged in user render results here
+            </div>
+            <div>
+                render user results here
+        </div>
+        </div>
+    )
+}
+export default myResults; 

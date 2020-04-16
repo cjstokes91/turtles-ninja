@@ -9,6 +9,11 @@ const NavBar = (props) => {
             <div>
                 <Link to='myresults' onClick={props.handleResults} className='results'>My Results</Link>
             </div>
+            <div>
+                <Link to='/quiz' className='quiz'>Take Quiz</Link>
+
+            </div>
+            <Link to='/character' className='character-page'> Character page</Link>
         </div>
         :
         <div>

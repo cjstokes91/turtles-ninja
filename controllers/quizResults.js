@@ -1,20 +1,30 @@
 const quizResult = require('../models/quizResult');
 
 module.exports = {
-    index,
-    newResults
+    // index,
+    newResults,
+    getResults
+    //     deleteOne
 }
 async function newResults(req, res) {
-    console.log('this is new result')
-    console.log(req.user)
-    console.log('below is body')
-    console.log(req.body)
     req.body.user = req.user._id
     const result = await quizResult.create(req.body)
-    console.log(req.user)
     res.status(201).json(result)
 }
-async function index(req, res) {
-    const quizResults = await quizResult.find({ user: req.user._id });
-    res.status(200).json(quizResults);
+// async function index(req, res) {
+//     const quizResults = await quizResult.find({ user: req.user._id });
+//     res.status(200).json(quizResults);
+// }
+
+async function getResults(req, res) {
+    try {
+        const result = await quizResult.find({ user: req.body })
+        res.status(200).json({ result })
+    } catch (error) {
+    }
 }
+
+// async function deleteOne(req, res) { 
+//     const deletedResult = await quizResult.findByIdAndRemove(req.params.id);
+//     res(200).json(deletedResult)
+// }
