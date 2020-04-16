@@ -5,9 +5,10 @@ module.exports = {
     newResults
 }
 async function newResults(req, res) {
-    // console.log('this is new result')
-    // console.log(req.user)
-    // console.log(req.body)
+    console.log('this is new result')
+    console.log(req.user)
+    console.log('below is body')
+    console.log(req.body)
     req.body.user = req.user._id
     const result = await quizResult.create(req.body)
     console.log(req.user)

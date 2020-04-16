@@ -10,7 +10,7 @@ import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
 import turtleCharacters from '../../Const/characters'
 import resultService from '../../utils/resultService'
-import NewResults from '../NewResults/NewResults'
+import MyResults from '../MyResults/MyResults'
 
 class App extends React.Component {
 
@@ -117,9 +117,9 @@ class App extends React.Component {
   }
 
   async setResults(result) {
-
     const newResult = turtleCharacters.filter(character => character.name === result[0])
-    console.log(newResult)
+    console.log(newResult[0])
+    console.log('this is the New Result')
     if (result.length === 1) {
       await resultService.newResults(newResult[0])
       this.setState({ result: newResult[0] })
@@ -133,6 +133,10 @@ class App extends React.Component {
 
   showCharacter = () => {
     this.props.history.push('/character')
+  }
+
+  showResults = () => {
+
   }
 
   render() {
@@ -150,8 +154,8 @@ class App extends React.Component {
             <LoginPage handleSignupOrLogin={this.handleSignupOrLogin} />
           )
           } />
-          <Route exact path='/newresut' render={() => (
-            <NewResults />
+          <Route exact path='/myresults' render={() => (
+            <MyResults result={this.state.result} />
           )} />
           <Route exact path='/quiz' render={() => (
 
