@@ -138,8 +138,8 @@ class App extends React.Component {
     this.props.history.push('/character')
   }
 
-  handleDeleteResult = async id => {
-    await quizResult.deleteOne(id);
+  handleDeleteResult = async (id) => {
+    await resultService.deleteOne(id);
     this.setState(state => ({
       results: state.results.filter(r => r._id !== id)
     }), () => this.props.history.push('/'));
