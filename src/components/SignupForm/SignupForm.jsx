@@ -36,7 +36,7 @@ class SignupForm extends Component {
                 <input className='form-group' value={this.state.password} type='password' name='password' placeholder='password' onChange={this.handleChange} />
                 <input type='submit'></input>
                 <Link to='/'>Cancel</Link>
-                <img className='ninja-logo' src={'https://imgur.com/fVD3O3E.jpg'} >
+                <img className='ninja-logo' alt={''} src={'https://imgur.com/fVD3O3E.jpg'} >
                 </img>
             </form>
         )

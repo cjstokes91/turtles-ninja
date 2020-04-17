@@ -55,7 +55,7 @@ class LoginPage extends Component {
             </div>
           </div>
           <div>
-            <img src={'https://imgur.com/tcMYyd3.jpg'} >
+            <img alt={''} src={'https://imgur.com/tcMYyd3.jpg'} >
 
             </img>
           </div>

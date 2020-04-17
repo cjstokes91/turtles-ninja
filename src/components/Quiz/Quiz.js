@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Questions from '../Questions/Questions';
 import QuestionCount from '../QuestionCount/QuestionCount';
 import AnswerOption from '../AnswerOption/AnswerOption';
-import { render } from '@testing-library/react';
 
 class Quiz extends React.Component {
     renderAnswerOptions = (key) => {

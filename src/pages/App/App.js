@@ -10,7 +10,7 @@ import Quiz from '../../components/Quiz/Quiz';
 import Result from '../../components/Result/Result';
 import turtleCharacters from '../../Const/characters'
 import resultService from '../../utils/resultService'
-import MyResults from '../MyResults/MyResults'
+// import MyResults from '../MyResults/MyResults'
 import Home from '../Home/Home'
 
 class App extends React.Component {
@@ -24,10 +24,15 @@ class App extends React.Component {
     answersCount: {},
     result: [],
   }
-  componentDidUpdate() {
-    console.log('component did update')
-    console.log(this.state.answerOptions)
-  }
+  // async componentDidUpdate() {
+  //   console.log('component did update')
+  //   console.log(this.state.answerOptions)
+  //   const results = resultService.getResults(this.state.user)
+  //   this.setState({
+  //     result: results
+  //   })
+  //   //delete results show without refresh 
+  // }
 
   async componentDidMount() {
     const shuffledAnswerOptions = QuizQuestions.map(question =>
@@ -45,6 +50,8 @@ class App extends React.Component {
       question: QuizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
     });
+    // const results = await quizResults.getAll();
+    // this.setState({ results });
   }
 
   shuffleArray(array) {
@@ -79,12 +86,11 @@ class App extends React.Component {
       this.shuffleArray(question.answers)
     );
     if (this.state.user) {
-      const results = await resultService.getResults(this.state.user)
       this.setState({
         question: QuizQuestions[0].question,
         answerOptions: shuffledAnswerOptions[0],
-        result: results
       });
+      this.handleFetchResults()
     }
     this.setState({
       question: QuizQuestions[0].question,
@@ -93,6 +99,12 @@ class App extends React.Component {
     this.setState({
       result
     })
+  }
+
+  handleFetchResults = async () => {
+    const results = await resultService.getResults(this.state.user)
+    console.log('handle fetch result')
+    this.setState({ result: results })
   }
 
   setUserAnswer(answer) {
@@ -168,6 +180,7 @@ class App extends React.Component {
           <Route exact path='/myresults' render={() => (
             <Result
               results={this.state.result}
+              handleFetchResults={this.handleFetchResults}
             />
           )} />
           <Route path='/quiz' render={() =>
