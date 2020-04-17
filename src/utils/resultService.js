@@ -45,10 +45,12 @@ const getResults = (user) => {
     )
 }
 
-function deleteOne(id) {
-    return fetch(`${BASE_URL}/${id}`, {
-        method: 'DELETE'
-    }).then(res => res.json());
+const deleteOne = (id) => {
+    const options = {
+        method: 'DELETE',
+        headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
+    };
+    return fetch(`${BASE_URL}/${id}`, options).then(res => res.json());
 }
 
 export default {

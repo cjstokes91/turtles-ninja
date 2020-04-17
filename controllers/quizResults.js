@@ -27,13 +27,19 @@ async function getResults(req, res) {
 }
 
 async function deleteOne(req, res) {
-    const deletedResult = await quizResult.findByIdAndRemove(req.params.id);
-    res(200).json(deletedResult)
+    try {
 
-    // async function getAllResults(req, res) {
-    //     const allResults = await quizResult.find({})
-    //     res.status(200).json({ allResults })
-    // }
+        const deletedResult = await quizResult.findByIdAndRemove(req.params.id);
+        console.log('hitting delete', deletedResult)
+        res.status(200).json(deletedResult)
 
-    // get all users results 
+    } catch (error) {
+        console.log(error)
+    }
 }
+        // async function getAllResults(req, res) {
+        //     const allResults = await quizResult.find({})
+        //     res.status(200).json({ allResults })
+        // }
+
+        // get all users results 

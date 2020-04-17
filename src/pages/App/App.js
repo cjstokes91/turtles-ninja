@@ -14,10 +14,6 @@ import MyResults from '../MyResults/MyResults'
 import Home from '../Home/Home'
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-  // }
   state = {
     user: userService.getUser(),
     counter: 0,
@@ -143,7 +139,6 @@ class App extends React.Component {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
       await resultService.newResults(newResult[0])
-      // might have to check this out
       this.setState({ result: newResult[0] })
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
@@ -152,20 +147,6 @@ class App extends React.Component {
   showCharacter = () => {
     this.props.history.push('/character')
   }
-
-  handleDeleteResult = async (id) => {
-    console.log('this is handle delete')
-    await resultService.deleteOne(id);
-    this.setState(state => ({
-      results: state.results.filter(r => r._id !== id)
-    }), () => this.props.history.push('/'));
-  }
-
-  // async componentDidMount() { 
-  //   const results = await quizResult.getAll();
-  //   this.setState({results})
-  // }
-
 
   render() {
     return (
@@ -186,12 +167,10 @@ class App extends React.Component {
           )} />
           <Route exact path='/myresults' render={() => (
             <Result
-              quizResult={this.state.result}
-              handleDeleteResult={this.handleDeleteResult}
+              results={this.state.result}
             />
           )} />
           <Route path='/quiz' render={() =>
-            // if (this.state.user) {
             (
               <Quiz
                 answer={this.state.answer}
@@ -204,24 +183,6 @@ class App extends React.Component {
                 counter={this.state.counter}
               />
             )
-            // }
-            // else {
-            //   return <Home />
-            // }
-
-            // ({ history }) => (
-            //   <Quiz
-            //     answer={this.state.answer}
-            //     answerOptions={this.state.answerOptions}
-            //     questionId={this.state.questionId}
-            //     question={this.state.question}
-            //     questionTotal={QuizQuestions.length}
-            //     onAnswerSelected={this.handleAnswerSelected}
-            //     setNextQuestion={this.setNextQuestion}
-            //     counter={this.state.counter}
-            //   // history={history}
-            //   />
-            // )
           } />
         </Switch>
       </div>
