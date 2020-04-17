@@ -14,10 +14,10 @@ import MyResults from '../MyResults/MyResults'
 import Home from '../Home/Home'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+  // }
   state = {
     user: userService.getUser(),
     counter: 0,
@@ -79,6 +79,21 @@ class App extends React.Component {
   handleSignupOrLogin = async () => {
     this.setState({ user: userService.getUser() })
     const result = await resultService.getResults(this.state.user)
+    const shuffledAnswerOptions = QuizQuestions.map(question =>
+      this.shuffleArray(question.answers)
+    );
+    if (this.state.user) {
+      const results = await resultService.getResults(this.state.user)
+      this.setState({
+        question: QuizQuestions[0].question,
+        answerOptions: shuffledAnswerOptions[0],
+        result: results
+      });
+    }
+    this.setState({
+      question: QuizQuestions[0].question,
+      answerOptions: shuffledAnswerOptions[0]
+    });
     this.setState({
       result
     })
@@ -139,6 +154,7 @@ class App extends React.Component {
   }
 
   handleDeleteResult = async (id) => {
+    console.log('this is handle delete')
     await resultService.deleteOne(id);
     this.setState(state => ({
       results: state.results.filter(r => r._id !== id)
@@ -169,7 +185,10 @@ class App extends React.Component {
             <Home />
           )} />
           <Route exact path='/myresults' render={() => (
-            <Result quizResult={this.state.result} />
+            <Result
+              quizResult={this.state.result}
+              handleDeleteResult={this.handleDeleteResult}
+            />
           )} />
           <Route path='/quiz' render={() =>
             // if (this.state.user) {
