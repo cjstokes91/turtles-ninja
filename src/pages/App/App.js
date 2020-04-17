@@ -22,11 +22,15 @@ class App extends React.Component {
     user: userService.getUser(),
     counter: 0,
     questionId: 1,
-    question: '',
+    question: QuizQuestions[0].question,
     answerOptions: [],
     answer: '',
     answersCount: {},
-    result: '',
+    result: [],
+  }
+  componentDidUpdate() {
+    console.log('component did update')
+    console.log(this.state.answerOptions)
   }
 
   async componentDidMount() {
@@ -74,9 +78,9 @@ class App extends React.Component {
 
   handleSignupOrLogin = async () => {
     this.setState({ user: userService.getUser() })
-    const results = await resultService.getResults(this.state.user)
+    const result = await resultService.getResults(this.state.user)
     this.setState({
-      result: results
+      result
     })
   }
 
@@ -124,6 +128,7 @@ class App extends React.Component {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
       await resultService.newResults(newResult[0])
+      // might have to check this out
       this.setState({ result: newResult[0] })
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
@@ -132,6 +137,20 @@ class App extends React.Component {
   showCharacter = () => {
     this.props.history.push('/character')
   }
+
+  handleDeleteResult = async id => {
+    await quizResult.deleteOne(id);
+    this.setState(state => ({
+      results: state.results.filter(r => r._id !== id)
+    }), () => this.props.history.push('/'));
+  }
+
+  // async componentDidMount() { 
+  //   const results = await quizResult.getAll();
+  //   this.setState({results})
+  // }
+
+
   render() {
     return (
       <div className="App">
@@ -152,20 +171,39 @@ class App extends React.Component {
           <Route exact path='/myresults' render={() => (
             <Result quizResult={this.state.result} />
           )} />
-          <Route exact path='/quiz' render={() => (
+          <Route path='/quiz' render={() =>
+            // if (this.state.user) {
+            (
+              <Quiz
+                answer={this.state.answer}
+                answerOptions={this.state.answerOptions}
+                questionId={this.state.questionId}
+                question={this.state.question}
+                questionTotal={QuizQuestions.length}
+                onAnswerSelected={this.handleAnswerSelected}
+                setNextQuestion={this.setNextQuestion}
+                counter={this.state.counter}
+              />
+            )
+            // }
+            // else {
+            //   return <Home />
+            // }
 
-            <Quiz
-              answer={this.state.answer}
-              answerOptions={this.state.answerOptions}
-              questionId={this.state.questionId}
-              question={this.state.question}
-              questionTotal={QuizQuestions.length}
-              onAnswerSelected={this.handleAnswerSelected}
-              setNextQuestion={this.setNextQuestion}
-              counter={this.state.counter}
-            // result={this.state.result}
-            />
-          )} />
+            // ({ history }) => (
+            //   <Quiz
+            //     answer={this.state.answer}
+            //     answerOptions={this.state.answerOptions}
+            //     questionId={this.state.questionId}
+            //     question={this.state.question}
+            //     questionTotal={QuizQuestions.length}
+            //     onAnswerSelected={this.handleAnswerSelected}
+            //     setNextQuestion={this.setNextQuestion}
+            //     counter={this.state.counter}
+            //   // history={history}
+            //   />
+            // )
+          } />
         </Switch>
       </div>
     );

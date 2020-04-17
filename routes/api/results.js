@@ -8,6 +8,7 @@ router.use(require('../../config/auth'));
 // router.post('/newResults', resultsCtrl.newResults);
 router.post('/newResults', checkAuth, resultsCtrl.newResults);
 router.post('/getresult', checkAuth, resultsCtrl.getResults);
+router.delete('/:id', checkAuth, resultsCtrl.deleteOne);
 // checkAuth function 
 function checkAuth(req, res, next) {
     if (req.user) return next();

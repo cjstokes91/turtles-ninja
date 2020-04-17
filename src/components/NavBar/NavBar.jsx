@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const NavBar = (props) => {
+    function checking() {
+        console.log('checking function')
+    }
     let nav = props.user ?
         <div>
             <Link to='' onClick={props.handleLogout} className='NavBar-link'>LOG OUT</Link>
@@ -10,8 +13,7 @@ const NavBar = (props) => {
                 <Link to='myresults' onClick={props.handleResults} className='results'>My Results</Link>
             </div>
             <div>
-                <Link to='/quiz' className='quiz'>Take Quiz</Link>
-
+                <Link to='/quiz' onClick={checking} className='quiz'>Take Quiz</Link>
             </div>
             <Link to='/home' className='character-page'>Home</Link>
         </div>
