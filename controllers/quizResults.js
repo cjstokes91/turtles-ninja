@@ -7,9 +7,23 @@ module.exports = {
     deleteOne,
 }
 async function newResults(req, res) {
-    req.body.user = req.user._id
-    const result = await quizResult.create(req.body)
-    res.status(201).json(result)
+    console.log(req.body)
+    const result = await quizResult.findOne({ name: req.body.name })
+    if (result) {
+        if (result.user.includes(req.user._id)) {
+            res.status(201).json(result)
+        } else {
+            result.user.push(req.user)
+            await result.save()
+            res.status(201).json(result)
+        }
+
+    } else {
+        const newResult = await quizResult.create(req.body)
+        newResult.user.push(req.user)
+        await newResult.save()
+        res.status(201).json(newResult)
+    }
 }
 
 async function index(req, res) {
@@ -20,7 +34,9 @@ async function index(req, res) {
 
 async function getResults(req, res) {
     try {
-        const result = await quizResult.find({ user: req.body })
+        const result = await quizResult.find({ user: req.user._id })
+        console.log('this is req body ', result)
+
         res.status(200).json({ result })
     } catch (error) {
     }

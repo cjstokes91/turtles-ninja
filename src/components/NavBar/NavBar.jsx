@@ -5,10 +5,10 @@ const NavBar = (props) => {
         console.log('checking function')
     }
     let nav = props.user ?
-        <div>
-            <Link to='' onClick={props.handleLogout} className='NavBar-link'>LOG OUT</Link>
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+            <button to='' onClick={props.handleLogout} >LOG OUT</button>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+        <a class="navbar-brand" href="#">WELCOME, {props.user.name}</a>
             <div>
                 <Link to='myresults' onClick={props.handleResults} className='results'>My Results</Link>
             </div>

@@ -22,6 +22,7 @@ class App extends React.Component {
     answerOptions: [],
     answer: '',
     answersCount: {},
+    myResults: [],
     result: [],
   }
 
@@ -69,11 +70,13 @@ class App extends React.Component {
       answersCount: {},
       result: '',
     });
+    this.props.history.push('/')
   }
 
   handleSignupOrLogin = async () => {
     this.setState({ user: userService.getUser() })
     const result = await resultService.getResults(this.state.user)
+    console.log(result, 'this is result')
     const shuffledAnswerOptions = QuizQuestions.map(question =>
       this.shuffleArray(question.answers)
     );
@@ -81,12 +84,15 @@ class App extends React.Component {
       this.setState({
         question: QuizQuestions[0].question,
         answerOptions: shuffledAnswerOptions[0],
+
       });
-      this.handleFetchResults()
+      const results = this.handleFetchResults()
+      // const allResults = this.handleAllResults()
     }
     this.setState({
       question: QuizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0]
+      answerOptions: shuffledAnswerOptions[0],
+      results: result
     });
     this.setState({
       result
@@ -152,15 +158,16 @@ class App extends React.Component {
   async setResults(result) {
     const newResult = turtleCharacters.filter(character => character.name === result[0])
     if (result.length === 1) {
-      await resultService.newResults(newResult[0])
-      this.setState({ result: newResult[0] })
+      const newResultObj = await resultService.newResults(newResult[0])
+      this.setState({ result: newResultObj })
     } else {
       this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }
   }
-  showCharacter = () => {
-    this.props.history.push('/character')
-  }
+  // showCharacter = () => {
+  //   console.log('this is show character')
+  //   this.props.history.push('/character')
+  // }
 
   render() {
     return (

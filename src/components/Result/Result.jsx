@@ -36,7 +36,7 @@ function Result(props) {
                         <div>
                             <img alt={''} src={result.img} />
                         </div>
-                        <button className='button' onClick={() => handleDeleteResult(result._id)}>Delete Character</button>
+                        <button type="button" class="btn btn-danger" onClick={() => handleDeleteResult(result._id)}>Delete Character</button>
                         <div>
                         </div>
                     </div>
