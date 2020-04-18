@@ -1,18 +1,13 @@
 import React from 'react';
 import resultService from '../../utils/resultService';
 
-
-
 function Result(props) {
     const handleDeleteResult = async (id) => {
         console.log('this is handle delete')
         await resultService.deleteOne(id);
         props.handleFetchResults()
-
-        // props.history.push('/myresults')
-
     }
-    console.log('hitting result page')
+    console.log('hitting result page', props.results)
 
     return (
         <div>{props.results.map((result, idx) => {

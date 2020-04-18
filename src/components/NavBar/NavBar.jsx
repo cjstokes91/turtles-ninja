@@ -13,6 +13,9 @@ const NavBar = (props) => {
                 <Link to='myresults' onClick={props.handleResults} className='results'>My Results</Link>
             </div>
             <div>
+                <Link to='allresults' onClick={props.handleAllResults} className='results'>All Results</Link>
+            </div>
+            <div>
                 <Link to='/quiz' onClick={checking} className='quiz'>Take Quiz</Link>
             </div>
             <Link to='/home' className='character-page'>Home</Link>
