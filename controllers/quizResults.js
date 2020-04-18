@@ -27,7 +27,7 @@ async function newResults(req, res) {
 }
 
 async function index(req, res) {
-    console.log('hitting index in controller')
+    console.log('hitting index')
     const quizResults = await quizResult.find({});
     res.status(200).json(quizResults);
 }
@@ -36,7 +36,6 @@ async function getResults(req, res) {
     try {
         const result = await quizResult.find({ user: req.user._id })
         console.log('this is req body ', result)
-
         res.status(200).json({ result })
     } catch (error) {
     }

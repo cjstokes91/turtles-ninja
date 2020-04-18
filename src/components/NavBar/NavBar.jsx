@@ -6,19 +6,19 @@ const NavBar = (props) => {
     }
     let nav = props.user ?
         <div class="navbar navbar-expand-lg navbar-light bg-light">
-            <button to='' onClick={props.handleLogout} >LOG OUT</button>
+            <button type="button" class="btn btn-warning" to='' onClick={props.handleLogout} >LOG OUT</button>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <a class="navbar-brand" href="#">WELCOME, {props.user.name}</a>
+            <div>
+                <Link to='/home' className='character-page'>Home</Link>
+            </div>
             <div>
                 <Link to='myresults' onClick={props.handleResults} className='results'>My Results</Link>
             </div>
             <div>
                 <Link to='allresults' onClick={props.handleAllResults} className='results'>All Results</Link>
             </div>
-            <div>
-                <Link to='/quiz' onClick={checking} className='quiz'>Take Quiz</Link>
-            </div>
-            <Link to='/home' className='character-page'>Home</Link>
+            <Link to='/quiz' onClick={checking} className='quiz'>Take Quiz</Link>
         </div>
         :
         <div>

@@ -26,7 +26,6 @@ class Quiz extends React.Component {
     render() {
         return (
             <div>
-                {/* <div className='quiz'> */}
                 <QuestionCount
                     counter={this.props.counter}
                     total={this.props.questionTotal}

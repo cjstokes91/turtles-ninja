@@ -37,14 +37,16 @@ class App extends React.Component {
         question: QuizQuestions[0].question,
         answerOptions: shuffledAnswerOptions[0],
         result: results
+        // when lines 36-39 commented out only shows allResults
       });
     }
-    this.setState({
-      question: QuizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0]
-    });
-    const allResults = await resultService.getAllResults();
-    this.setState({ results: allResults })
+    // this.setState({
+    //   question: QuizQuestions[0].question,
+    //   answerOptions: shuffledAnswerOptions[0]
+    // nothing happens probable extra code 
+    // });
+    // const allResults = await resultService.getAllResults();
+    // this.setState({ results: allResults })
   }
 
   shuffleArray(array) {
@@ -88,21 +90,26 @@ class App extends React.Component {
       });
       const results = this.handleFetchResults()
       // const allResults = this.handleAllResults()
+      // when commented in throws error when signing in
     }
-    this.setState({
-      question: QuizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0],
-      results: result
-    });
-    this.setState({
-      result
-    })
+    // this.setState({
+    // question: QuizQuestions[0].question,
+    // answerOptions: shuffledAnswerOptions[0],
+    // results: result
+    // duplicate set state probable
+    // });
+    // this.setState({
+    // result
+    // duplicate set state probable
+    // })
   }
 
   handleFetchResults = async () => {
     const results = await resultService.getResults(this.state.user)
     console.log(results, 'handle fetch result')
     this.setState({ result: results })
+    // handles delete as well
+    // duplicate set state probable
   }
 
   handleFetchAllResults = async () => {
@@ -135,6 +142,7 @@ class App extends React.Component {
       answerOptions: QuizQuestions[counter].answers,
       answer: ''
     })
+    // need this set state to get next question
   }
 
   handleAnswerSelected = (event) => {
@@ -160,20 +168,14 @@ class App extends React.Component {
     if (result.length === 1) {
       const newResultObj = await resultService.newResults(newResult[0])
       this.setState({ result: newResultObj })
-    } else {
-      this.setState({ result: 'Not sure, probably a basic foot clan soldier' })
     }
   }
-  // showCharacter = () => {
-  //   console.log('this is show character')
-  //   this.props.history.push('/character')
-  // }
 
   render() {
     return (
       <div className="App">
-        <header>NINJA TURTLES</header>
-        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+        <header className='header'>N I N J A <br></br>T U R T L E S</header>
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} handleFetchResults={this.handleFetchResults} />
         <Switch>
           <Route exact path='/signup' render={() => (
             <SignupForm handleSignupOrLogin={this.handleSignupOrLogin} />
@@ -187,7 +189,8 @@ class App extends React.Component {
             <Home />
           )} />
           <Route exact path='/allresults' render={() => (
-            <AllResult results={this.state.result}
+            <AllResult
+              results={this.state.result}
               handleFetchAllResults={this.handleFetchAllResults}
             />
           )} />

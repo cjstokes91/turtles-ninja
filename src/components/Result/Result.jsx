@@ -5,6 +5,7 @@ function Result(props) {
     const handleDeleteResult = async (id) => {
         console.log('this is handle delete')
         await resultService.deleteOne(id);
+        // possible if block to only show result if result == user
         props.handleFetchResults()
     }
     console.log('hitting result page', props.results)
@@ -17,6 +18,9 @@ function Result(props) {
                         <div>
                             COWABUNGA!!!! you are most like
                 </div>
+                        <div>
+                            <strong>USER:ID {result.user}</strong>
+                        </div>
                         <strong>Name: {result.name}</strong>
                         <div>
                             <strong>
