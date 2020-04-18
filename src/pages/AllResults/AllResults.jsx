@@ -1,4 +1,5 @@
 import React from 'react';
+// dont make the handleFetchAllResults a button ? 
 
 
 function allResults(props) {
@@ -10,7 +11,8 @@ function allResults(props) {
                 <br>
                 </br>
                 <button type="button" class="btn btn-primary" onClick={() => props.handleFetchAllResults()}>Show All Results</button>
-                <div>{props.results.map((result, idx) => {
+                {console.log(props.handleFetchAllResults)}
+                <div>{props.allResults.map((result, idx) => {
                     return (
                         <div>
                             <div className='result' key={idx}>

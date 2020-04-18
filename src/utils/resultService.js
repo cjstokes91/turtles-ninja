@@ -22,9 +22,10 @@ const newResults = (results) => {
             .then(data => console.log(data))
     )
 }
-const getResults = (user) => {
+/*
+const getMyResults = (user) => {
     return (
-        fetch(BASE_URL + '/getresult', {
+        fetch(BASE_URL + '/getmyresults', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -44,6 +45,27 @@ const getResults = (user) => {
             })
     )
 }
+*/
+const getMyResults = () => {
+    console.log('hitting result service')
+    return fetch(BASE_URL + '/getmyresults',
+        {
+            headers: {
+                // 'Content-type': 'application/json',
+                // Add this header - don't forget the space after Bearer
+                'Authorization': 'Bearer ' + tokenService.getToken()
+            }
+        }
+    )
+        .then(res => res.json());
+}
+
+
+const getAllResults = () => {
+    console.log('hitting result service')
+    return fetch(BASE_URL)
+        .then(res => res.json());
+}
 
 const deleteOne = (id) => {
     const options = {
@@ -53,16 +75,11 @@ const deleteOne = (id) => {
     return fetch(`${BASE_URL}/${id}`, options).then(res => res.json());
 }
 
-const getAllResults = () => {
-    console.log('hitting result service')
-    return fetch(BASE_URL)
-        .then(res => res.json());
-}
 
 
 export default {
     newResults,
-    getResults,
+    getMyResults,
     deleteOne,
     getAllResults
 }

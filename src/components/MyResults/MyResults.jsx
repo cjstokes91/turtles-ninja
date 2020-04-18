@@ -1,17 +1,17 @@
 import React from 'react';
 import resultService from '../../utils/resultService';
 
-function Result(props) {
+function myResults(props) {
     const handleDeleteResult = async (id) => {
         console.log('this is handle delete')
         await resultService.deleteOne(id);
         // possible if block to only show result if result == user
-        props.handleFetchResults()
+        props.handleMyResults()
     }
-    console.log('hitting result page', props.results)
+    console.log('hitting result page', props)
 
     return (
-        <div>{props.results.map((result, idx) => {
+        <div>{props.myResults.map((result, idx) => {
             return (
                 <div>
                     <div className='result' key={idx}>
@@ -19,7 +19,7 @@ function Result(props) {
                             COWABUNGA!!!! you are most like
                 </div>
                         <div>
-                            <strong>USER:ID {result.user}</strong>
+                            {/* <strong>USER:ID {result.use}</strong> */}
                         </div>
                         <strong>Name: {result.name}</strong>
                         <div>
@@ -51,4 +51,4 @@ function Result(props) {
 }
 
 
-export default Result; 
+export default myResults; 

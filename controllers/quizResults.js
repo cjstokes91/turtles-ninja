@@ -3,12 +3,12 @@ const quizResult = require('../models/quizResult');
 module.exports = {
     index,
     newResults,
-    getResults,
+    getMyResults,
     deleteOne,
 }
 async function newResults(req, res) {
-    console.log(req.body)
-    const result = await quizResult.findOne({ name: req.body.name })
+    let result = await quizResult.findOne({ name: req.body.name })
+    console.log(result)
     if (result) {
         if (result.user.includes(req.user._id)) {
             res.status(201).json(result)
@@ -17,12 +17,11 @@ async function newResults(req, res) {
             await result.save()
             res.status(201).json(result)
         }
-
     } else {
-        const newResult = await quizResult.create(req.body)
-        newResult.user.push(req.user)
-        await newResult.save()
-        res.status(201).json(newResult)
+        result = await quizResult.create(req.body)
+        result.user.push(req.user)
+        await result.save()
+        res.status(201).json(result)
     }
 }
 
@@ -32,12 +31,14 @@ async function index(req, res) {
     res.status(200).json(quizResults);
 }
 
-async function getResults(req, res) {
+async function getMyResults(req, res) {
     try {
-        const result = await quizResult.find({ user: req.user._id })
-        console.log('this is req body ', result)
-        res.status(200).json({ result })
+        const results = await quizResult.find()
+        console.log('this is req body ', results)
+        const myResults = results.filter(result => result.user.includes(req.user._id))
+        res.status(200).json(myResults)
     } catch (error) {
+        console.log(error)
     }
 }
 
