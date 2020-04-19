@@ -24,7 +24,7 @@ let quizQuestions = [
             },
             {
                 type: "Splinter",
-                content: "tofu, almond cheese, roasted potatoes and roasted brussel sprouts"
+                content: "stinky tofu, almond cheese, roasted potatoes and roasted brussel sprouts"
 
             }
         ]
@@ -84,7 +84,7 @@ let quizQuestions = [
             },
             {
                 type: "Splinter",
-                content: "I'll just use my tail"
+                content: "i just use my tail"
 
             }
         ]
@@ -94,7 +94,7 @@ let quizQuestions = [
         answers: [
             {
                 type: "Leonardo",
-                content: "Training to be the best, being lame"
+                content: "Training to be the best"
 
             },
             {
@@ -104,12 +104,12 @@ let quizQuestions = [
             },
             {
                 type: "Donatello",
-                content: "Coding a new app, inventing gadgets"
+                content: "inventing gadgets"
 
             },
             {
                 type: "Michelangelo",
-                content: "Video Games , sliding into april o'niels dm's"
+                content: "Video Games"
 
             },
             {
@@ -185,27 +185,27 @@ let quizQuestions = [
         answers: [
             {
                 type: "Michelangelo",
-                content: "Pizza and Soda"
+                content: "Pizza and Soda and April"
 
             },
             {
                 type: "Splinter",
-                content: "Reading and Philosiphing"
+                content: "Reading dusy books, wearing kimonos"
 
             },
             {
                 type: "Bebop",
-                content: "Baking"
+                content: "baking shows"
 
             },
             {
                 type: "RockSteady",
-                content: "Hair Metal"
+                content: "hair Metal, monster truck rallies"
 
             },
             {
                 type: "Shredder",
-                content: "Ooozee"
+                content: "stealing the secret oozee"
 
             }
         ]
@@ -225,12 +225,12 @@ let quizQuestions = [
             },
             {
                 type: "Donatello",
-                content: "Inventing new tech"
+                content: "inventing new tech"
 
             },
             {
                 type: "Splinter",
-                content: "When your four sons sneak up to the service"
+                content: "lack of discipline"
 
             },
             {
@@ -245,27 +245,27 @@ let quizQuestions = [
         answers: [
             {
                 type: "Raphael",
-                content: "Im sensitive"
+                content: "im sensitive"
 
             },
             {
                 type: "Michelangelo",
-                content: "I want to be a stand-up comedian"
+                content: "i want to be a stand-up comedian"
 
             },
             {
                 type: "RockSteady",
-                content: "I hate shredder"
+                content: "im not actually a mutant rhino"
 
             },
             {
                 type: "Casey Jones",
-                content: "Im in Love with April"
+                content: "i never played hockey"
 
             },
             {
                 type: "Leonardo",
-                content: "I love Frasier"
+                content: "scared of the dark"
 
             }
         ]
@@ -459,8 +459,8 @@ let quizQuestions = [
 
             },
             {
-                type: "Frank Ocean",
-                content: "April O'neill"
+                type: "April Oniell",
+                content: "Frank Ocean"
 
             },
             {
