@@ -72,3 +72,20 @@ code {
   width: 75%;
 }
 
+ul {
+  list-style: none;
+  color: rgb(84, 177, 84);
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.paragraph { 
+  background-color: rgb(42, 138, 42);
+  margin-top: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.img { 
+  margin-bottom: 100px;
+}

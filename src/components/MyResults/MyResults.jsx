@@ -1,20 +1,18 @@
 import React from 'react';
 
 class myResults extends React.Component {
-
     render() {
-
         return (
-            <div>{this.props.myResults.map((result, idx) => {
+            <div className='myresults'>{this.props.myResults.map((result, idx) => {
                 return (
                     <div>
                         <div className='result' key={idx}>
                             <div>
                                 COWABUNGA!!!! you are most like
                         </div>
-                            <div>
+                            <div className='name'>
+                                <strong>Name: {result.name}</strong>
                             </div>
-                            <strong>Name: {result.name}</strong>
                             <div>
                                 <strong>
                                     Age: {result.age}

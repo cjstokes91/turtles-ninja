@@ -63,8 +63,18 @@ header {
   margin-bottom: 50px;
 }
 
+h1 { 
+  font-weight: 700;
+  color: rgb(139, 139, 116);
+  background-color: black;
+  margin: 100px 50px 30px 50px;
+
+}
+
 h2 { 
-  font-family: 'Righteous';
+  font-family: monospace;
+  color: rgba(44, 44, 91, 0.6970.2);
+  font-size: xx-large;
 }
 .header { 
   font-size: 20px;
@@ -82,4 +92,23 @@ h2 {
 }
 a { 
   padding-left: 10px;
+}
+
+.myresults { 
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+  margin-top: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+  font-size: xx-large;
+}
+.allresults { 
+  background-color: orange;
+  opacity: 0.9;
+  color:  blue;
+  margin-top: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+  font-size: xx-large;
 }
