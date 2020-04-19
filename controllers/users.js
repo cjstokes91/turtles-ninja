@@ -12,12 +12,10 @@ async function signup(req, res) {
   try {
     await user.save();
     console.log('hello')
-    // Be sure to first delete data that should not be in the token
     const token = createJWT(user);
     console.log(token);
     res.json({ token });
   } catch (err) {
-    // Probably a duplicate email
     res.status(400).json(err);
   }
 }
@@ -48,7 +46,6 @@ async function login(req, res) {
   }
 }
 
-// don't forget this:
 module.exports = {
   signup,
   login

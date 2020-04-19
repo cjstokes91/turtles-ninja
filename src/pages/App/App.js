@@ -121,7 +121,7 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() })
     const myResults = await resultService.getMyResults(this.state.user)
     console.log(myResults, 'this is my results')
-    const allResults = this.handleFetchAllResults()
+    this.handleFetchAllResults()
     const shuffledAnswerOptions = QuizQuestions.map(question =>
       this.shuffleArray(question.answers)
     );
@@ -130,39 +130,20 @@ class App extends React.Component {
         question: QuizQuestions[0].question,
         answerOptions: shuffledAnswerOptions[0],
         myResults: myResults
-
       });
-      // const myResults = this.handleMyResults()
-      // when commented in throws error when signing in
     }
-    // this.setState({
-    // question: QuizQuestions[0].question,
-    // answerOptions: shuffledAnswerOptions[0],
-    // results: result
-    // duplicate set state probable
-    // });
-    // this.setState({
-    // result
-    // duplicate set state probable
-    // })
   }
 
   handleMyResults = async () => {
     const myResults = await resultService.getMyResults(this.state.user)
     console.log(myResults, 'handle fetch result')
     this.setState({ myResults: myResults })
-    // handles delete as well
-    // duplicate set state probable
   }
 
   handleFetchAllResults = async () => {
     const allResults = await resultService.getAllResults()
     console.log('hitting fetch all')
     this.setState({ allResults: allResults })
-    // // get all user data 
-    // const allResults = await resultService.getAllResults();
-    // this.setState({ results: allResults })
-
   }
 
   setUserAnswer(answer) {
@@ -185,7 +166,6 @@ class App extends React.Component {
       answerOptions: QuizQuestions[counter].answers,
       answer: ''
     })
-    // need this set state to get next question
   }
 
   handleAnswerSelected = (event) => {
@@ -201,7 +181,6 @@ class App extends React.Component {
 
     console.log('this is handle delete')
     await resultService.deleteOne(id);
-    // possible if block to only show result if result == user
     this.handleMyResults()
 
   }
@@ -219,14 +198,10 @@ class App extends React.Component {
     console.log(result)
     const newResult = turtleCharacters.filter(character => character.name === result[0])
 
-    // if (result.length === 1) {
     const newResultObj = await resultService.newResults(newResult[0])
     this.setState(state => ({
       myResults: [...state.myResults, newResultObj]
     }))
-    // this.setState({ result: newResultObj })
-
-    // }
   }
 
   render() {

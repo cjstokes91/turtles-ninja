@@ -8,7 +8,7 @@ const NavBar = (props) => {
         <div class="navbar navbar-expand-lg navbar-light bg-light">
             <button type="button" class="btn btn-warning" to='' onClick={props.handleLogout} >LOG OUT</button>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <a class="navbar-brand" href="#">WELCOME, {props.user.name}</a>
+        <button class="navbar-brand" href="#">WELCOME, {props.user.name}</button>
             <div>
                 <Link to='/home' className='character-page'>Home</Link>
             </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-// dont make the handleFetchAllResults a button ? 
-
 
 function allResults(props) {
     console.log(props.results, 'here is all results page')
