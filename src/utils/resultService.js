@@ -19,7 +19,7 @@ const newResults = (results) => {
                 if (res.ok) return res.json()
                 throw new Error('bad call')
             })
-            .then(data => console.log(data))
+        // .then(data => console.log(data))
     )
 }
 /*
@@ -51,7 +51,7 @@ const getMyResults = () => {
     return fetch(BASE_URL + '/getmyresults',
         {
             headers: {
-                // 'Content-type': 'application/json',
+                'Content-type': 'application/json',
                 // Add this header - don't forget the space after Bearer
                 'Authorization': 'Bearer ' + tokenService.getToken()
             }

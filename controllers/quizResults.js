@@ -7,22 +7,22 @@ module.exports = {
     deleteOne,
 }
 async function newResults(req, res) {
-    let result = await quizResult.findOne({ name: req.body.name })
-    console.log(result)
-    if (result) {
-        if (result.user.includes(req.user._id)) {
-            res.status(201).json(result)
-        } else {
-            result.user.push(req.user)
-            await result.save()
-            res.status(201).json(result)
-        }
-    } else {
-        result = await quizResult.create(req.body)
-        result.user.push(req.user)
-        await result.save()
-        res.status(201).json(result)
-    }
+    // let result = await quizResult.findOne({ name: req.body.name })
+    // console.log(result)
+    // if (result) {
+    //     if (result.user.includes(req.user._id)) {
+    //         res.status(201).json(result)
+    //     } else {
+    //         result.user.push(req.user)
+    //         await result.save()
+    //         res.status(201).json(result)
+    //     }
+    // } else {
+    let result = await quizResult.create(req.body)
+    result.user.push(req.user)
+    await result.save()
+    res.status(201).json(result)
+    // }
 }
 
 async function index(req, res) {

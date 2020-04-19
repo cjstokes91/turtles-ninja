@@ -49,6 +49,45 @@ class App extends React.Component {
     // const allResults = await resultService.getAllResults();
     // this.setState({ results: allResults })
   }
+  x = this.state.myResults.length ?
+    <div>{this.state.myResults.map((result, idx) => {
+      return (
+        <div>
+          <div className='result' key={idx}>
+            <div>
+              COWABUNGA!!!! you are most like
+                </div>
+            <div>
+              {/* <strong>USER:ID {result.use}</strong> */}
+            </div>
+            <strong>Name: {result.name}</strong>
+            <div>
+              <strong>
+                Age: {result.age}
+              </strong>
+            </div>
+            <div>
+              <strong>
+                Favorite Weapon: {result.weapon}
+              </strong>
+            </div>
+            <div>
+              <strong>
+                Personality Type: {result.personality}
+              </strong>
+            </div>
+            <div>
+              <img alt={''} src={result.img} />
+            </div>
+            <button type="button" class="btn btn-danger" onClick={() => this.handleDeleteResult(result._id)}>Delete Character</button>
+            <div>
+            </div>
+          </div>
+        </div>)
+    })}</div>
+    : <div>
+      Results Loading
+        </div>
 
   shuffleArray(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -158,6 +197,15 @@ class App extends React.Component {
     }
   }
 
+  handleDeleteResult = async (id) => {
+
+    console.log('this is handle delete')
+    await resultService.deleteOne(id);
+    // possible if block to only show result if result == user
+    this.handleMyResults()
+
+  }
+
   getResults() {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
@@ -168,15 +216,17 @@ class App extends React.Component {
   }
 
   async setResults(result) {
+    console.log(result)
     const newResult = turtleCharacters.filter(character => character.name === result[0])
-    if (result.length === 1) {
-      const newResultObj = await resultService.newResults(newResult[0])
-      this.setState(state => ({
-        myResults: [...state.myResults, newResultObj]
-      }))
-      // this.setState({ result: newResultObj })
 
-    }
+    // if (result.length === 1) {
+    const newResultObj = await resultService.newResults(newResult[0])
+    this.setState(state => ({
+      myResults: [...state.myResults, newResultObj]
+    }))
+    // this.setState({ result: newResultObj })
+
+    // }
   }
 
   render() {
@@ -206,6 +256,9 @@ class App extends React.Component {
             <MyResults
               myResults={this.state.myResults}
               handleMyResults={this.handleMyResults}
+              x={this.x}
+              handleDeleteResult={this.handleDeleteResult}
+
             />
           )} />
           <Route path='/quiz' render={() =>

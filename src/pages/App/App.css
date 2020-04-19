@@ -63,6 +63,10 @@ header {
   margin-bottom: 50px;
 }
 
+h1 { 
+  
+}
+
 h2 { 
   font-family: 'Righteous';
 }
@@ -80,4 +84,6 @@ h2 {
   font-size: 30px
   
 }
-
+a { 
+  padding-left: 10px;
+}
