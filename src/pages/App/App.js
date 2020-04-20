@@ -38,16 +38,8 @@ class App extends React.Component {
         question: QuizQuestions[0].question,
         answerOptions: shuffledAnswerOptions[0],
         myResults: myResults
-        // when lines 36-39 commented out only shows allResults
       });
     }
-    // this.setState({
-    //   question: QuizQuestions[0].question,
-    //   answerOptions: shuffledAnswerOptions[0]
-    // nothing happens probable extra code 
-    // });
-    // const allResults = await resultService.getAllResults();
-    // this.setState({ results: allResults })
   }
   x = this.state.myResults.length ?
     <div>{this.state.myResults.map((result, idx) => {
