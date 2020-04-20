@@ -18,11 +18,11 @@
 JavaScipt, React.js, Express.js, JSON, HTML, CSS, Bootstrap, Node, Mongoose, MongoDb
 ## Getting Started
 [Click for Turtle]: https://dry-peak-02837.herokuapp.com/
-<!-- [Click for Turtle] -->
+[Click for Turtle]
 [Click for Trello Board]: https://trello.com/b/4atzQ8nU/project-4-react
-<!-- [Click for Trello Board] -->
+[Click for Trello Board]
 [Click for GitHub repo]: https://github.com/cjstokes91/turtles-ninja
-<!-- [Click for GitHub repo] -->
+[Click for GitHub repo]
 ## Next Steps
 - Style to make app more uniform
 - Add character page
