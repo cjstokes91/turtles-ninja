@@ -5,116 +5,116 @@ let quizQuestions = [
             {
 
                 type: "Leonardo",
-                content: "sweet red onions, black olives, green peppers, mushrooms; Raphael: pepperoni, sausage"
+                content: "Sweet red onions, black olives, green peppers, mushrooms; Raphael: pepperoni, sausage"
             },
             {
                 type: "Raphael",
-                content: "pepperoni, Italian sausage, bacon, and beef"
+                content: "Pepperoni, Italian sausage, bacon, and beef"
 
             },
             {
                 type: "Donatello",
-                content: "chicken, mushrooms, green peppers, Roma tomatoes"
+                content: "Chicken, mushrooms, green peppers, Roma tomatoes"
 
             },
             {
                 type: "Michelangelo",
-                content: " pepperoni, smoked ham, pineapple, and jalepenos"
+                content: " Pepperoni, smoked ham, pineapple, and jalepenos"
 
             },
             {
                 type: "Splinter",
-                content: "stinky tofu, almond cheese, roasted potatoes and roasted brussel sprouts"
+                content: "Stinky tofu, almond cheese, roasted potatoes and roasted brussel sprouts"
 
             }
         ]
     },
     {
 
-        question: "Whats your favorite Color ?",
+        question: "What do you do when you're preparing for a mission??",
         answers: [
             {
                 type: "Leonardo",
-                content: "Blue"
+                content: "Meditate"
             },
             {
                 type: "Raphael",
-                content: "Red"
+                content: "Practice your moves"
 
             },
             {
                 type: "Donatello",
-                content: "Purple"
+                content: "Run through the plan in your head"
 
             },
             {
                 type: "Michelangelo",
-                content: "Orange"
+                content: "Relax and grab some food"
 
             },
             {
                 type: "Splinter",
-                content: "Black"
+                content: "I usually hang back from missions"
 
             }
         ]
     },
     {
-        question: "Whats your favorite utensil ?",
+        question: "Whats weapon are you using ?",
         answers: [
             {
                 type: "Leonardo",
-                content: "Knife"
+                content: "Sword"
 
             },
             {
                 type: "Raphael",
-                content: "Fork"
+                content: "Twin sai"
 
             },
             {
                 type: "Donatello",
-                content: "Chopsticks"
+                content: "Bo staff"
 
             },
             {
                 type: "Shredder",
-                content: "A Shredder"
+                content: "A shredder"
 
             },
             {
                 type: "Splinter",
-                content: "i just use my tail"
+                content: "Walking Stick"
 
             }
         ]
     },
     {
-        question: "How would you prefer to spend a weekend ?",
+        question: "What Best describes your personality ?",
         answers: [
             {
                 type: "Leonardo",
-                content: "Training to be the best"
+                content: "Thoughtful"
 
             },
             {
                 type: "Raphael",
-                content: "Breaking up robberies in central park"
+                content: "Serious"
 
             },
             {
                 type: "Donatello",
-                content: "inventing gadgets"
+                content: "Creative"
 
             },
             {
                 type: "Michelangelo",
-                content: "Video Games"
+                content: "Silly"
 
             },
             {
                 type: "April O'niell",
-                content: "Investigative Journalism"
+                content: "Loving"
 
             }
         ]
@@ -124,7 +124,7 @@ let quizQuestions = [
         question: "What is your Favorite Sport ?",
         answers: [
             {
-                type: "Casey Jones",
+                type: "Splinter",
                 content: "NHL"
 
             },
@@ -151,121 +151,121 @@ let quizQuestions = [
         ]
     },
     {
-        question: "Favorite Soup ?",
+        question: "Who is greatest Wrestler of All Time??",
         answers: [
             {
                 type: "Splinter",
-                content: "Tomato Soup"
+                content: "Hulk Hogan"
 
             },
             {
-                type: "Shredder",
-                content: "Turtle Soup"
+                type: "Michelangelo",
+                content: "Chris Jericho"
 
             },
             {
                 type: "Leonardo",
-                content: "Broccoli & Cheddar"
+                content: "Macho Man Randy Savage"
 
             },
             {
                 type: "Raphael",
-                content: "Clam Chowder"
+                content: "Undertake"
 
             },
             {
                 type: "April O'neill",
-                content: "Miso Soup"
+                content: "The Rock"
 
             }
         ]
     },
     {
-        question: "What makes you happy?",
+        question: "What is your spirit animal?",
         answers: [
             {
                 type: "Michelangelo",
-                content: "Pizza and Soda and April"
+                content: "Orangutan"
 
             },
             {
                 type: "Splinter",
-                content: "Reading dusy books, wearing kimonos"
-
-            },
-            {
-                type: "Bebop",
-                content: "baking shows"
-
-            },
-            {
-                type: "RockSteady",
-                content: "hair Metal, monster truck rallies"
-
-            },
-            {
-                type: "Shredder",
-                content: "stealing the secret oozee"
-
-            }
-        ]
-    },
-    {
-        question: "What are some things that make you angry ?",
-        answers: [
-            {
-                type: "Leonardo",
-                content: "My Brother Raphael"
-
-            },
-            {
-                type: "Raphael",
-                content: "My Brother Leonardo"
+                content: "Owl"
 
             },
             {
                 type: "Donatello",
-                content: "inventing new tech"
+                content: "Kangaroo"
 
             },
             {
-                type: "Splinter",
-                content: "lack of discipline"
+                type: "Raphael",
+                content: "Tiger"
 
             },
             {
-                type: "April O'neill",
-                content: "Big corporations"
+                type: "Shredder",
+                content: "Turtle"
 
             }
         ]
     },
     {
-        question: "What is one thing that many people don't know about you ?",
+        question: "Who would be your superhero mentor ?",
         answers: [
             {
+                type: "Leonardo",
+                content: "Batman"
+
+            },
+            {
                 type: "Raphael",
-                content: "im sensitive"
+                content: "Superman"
+
+            },
+            {
+                type: "Donatello",
+                content: "Ironman"
+
+            },
+            {
+                type: "Splinter",
+                content: "Alfred"
 
             },
             {
                 type: "Michelangelo",
-                content: "i want to be a stand-up comedian"
+                content: "Spider-man"
+
+            }
+        ]
+    },
+    {
+        question: "Which of the Star Wars Movies Do You Prefer? ?",
+        answers: [
+            {
+                type: "Raphael",
+                content: "Revenge of the sith"
 
             },
             {
-                type: "RockSteady",
-                content: "im not actually a mutant rhino"
+                type: "Michelangelo",
+                content: "New Hope"
 
             },
             {
-                type: "Casey Jones",
-                content: "i never played hockey"
+                type: "Donatello",
+                content: "The Force Awakens"
+
+            },
+            {
+                type: "Splinter",
+                content: "Attack of the clones"
 
             },
             {
                 type: "Leonardo",
-                content: "scared of the dark"
+                content: "Have not seen it"
 
             }
         ]
@@ -294,7 +294,7 @@ let quizQuestions = [
 
             },
             {
-                type: "Bebop",
+                type: "Splinter",
                 content: "Classical"
 
             }
@@ -314,8 +314,8 @@ let quizQuestions = [
 
             },
             {
-                type: "Casey Jones",
-                content: "Miracle"
+                type: "Michelangelo",
+                content: "Ron Burgundy"
 
             },
             {
@@ -349,7 +349,7 @@ let quizQuestions = [
 
             },
             {
-                type: "Shredder",
+                type: "Splinter",
                 content: "Animal Crossing"
 
             },
@@ -361,61 +361,61 @@ let quizQuestions = [
         ]
     },
     {
-        question: "What is your ideal Vacation ? ",
+        question: "If You Were Taking Part in a Play, What Would Be Your Role? ",
         answers: [
             {
-                type: "Bebop",
-                content: "Maldieves"
+                type: "Leonardo",
+                content: "Leading Man"
 
             },
             {
-                type: "Shredder",
-                content: "Sewers rat hunting"
+                type: "Splinter",
+                content: "Producer"
 
             },
             {
                 type: "Donatello",
-                content: "Bali"
+                content: "Technical Director"
 
             },
             {
                 type: "Raphael",
-                content: "Cental Park"
+                content: "Stunt Man"
 
             },
             {
                 type: "April O'neill",
-                content: "Investigating fraud in Japan"
+                content: "Leading Actor"
 
             }
         ]
     },
     {
-        question: "If you could have one super power what would it be ? ",
+        question: "Favorite board game ? ",
         answers: [
             {
                 type: "Donatello",
-                content: "Invisability"
+                content: "Operation"
 
             },
             {
                 type: "Michelangelo",
-                content: "Flying"
+                content: "Operation"
 
             },
             {
-                type: "Donatello",
-                content: "Super Speed"
+                type: "Leonardo",
+                content: "Settlers of Catan"
 
             },
             {
                 type: "Shredder",
-                content: "Ability to be loved"
+                content: "Hungry Hungry Hipos"
 
             },
             {
-                type: "Bebop",
-                content: "To be human"
+                type: "Michelangelo",
+                content: "Candy Land"
 
             }
         ]
@@ -434,7 +434,7 @@ let quizQuestions = [
 
             },
             {
-                type: "Casey Jones",
+                type: "Michelangelo",
                 content: "Its always sunny in philadelphia"
 
             },
@@ -455,7 +455,7 @@ let quizQuestions = [
         answers: [
             {
                 type: "Raphael",
-                content: "Kanye"
+                content: "Kanye West"
 
             },
             {
@@ -474,41 +474,41 @@ let quizQuestions = [
 
             },
             {
-                type: "Shredder",
-                content: "Creed"
-
-            }
-        ]
-    },
-    {
-        question: "What is your favorite soda ?",
-        answers: [
-            {
-                type: "Michelangelo",
-                content: "Orange flavored"
-
-            },
-            {
-                type: "Leonardo",
-                content: "No soda for Me"
-
-            },
-            {
                 type: "Donatello",
-                content: "Coke"
-
-            },
-            {
-                type: "April O'neill",
-                content: "Rootbeer"
-
-            },
-            {
-                type: "Raphael",
-                content: "Fanta"
+                content: "Justice"
 
             }
         ]
+        // },
+        // {
+        //     question: "What is your favorite soda ?",
+        //     answers: [
+        //         {
+        //             type: "Michelangelo",
+        //             content: "Orange flavored"
+
+        //         },
+        //         {
+        //             type: "Leonardo",
+        //             content: "No soda for Me"
+
+        //         },
+        //         {
+        //             type: "Donatello",
+        //             content: "Coke"
+
+        //         },
+        //         {
+        //             type: "April O'neill",
+        //             content: "Rootbeer"
+
+        //         },
+        //         {
+        //             type: "Raphael",
+        //             content: "Fanta"
+
+        //         }
+        //     ]
     }
 
 ]
