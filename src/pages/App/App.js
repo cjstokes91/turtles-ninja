@@ -50,7 +50,6 @@ class App extends React.Component {
               COWABUNGA!!!! you are most like
                 </div>
             <div>
-              {/* <strong>USER:ID {result.use}</strong> */}
             </div>
             <strong>Name: {result.name}</strong>
             <div>
@@ -169,14 +168,6 @@ class App extends React.Component {
     }
   }
 
-  handleDeleteResult = async (id) => {
-
-    console.log('this is handle delete')
-    await resultService.deleteOne(id);
-    this.handleMyResults()
-
-  }
-
   getResults() {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
@@ -194,6 +185,13 @@ class App extends React.Component {
     this.setState(state => ({
       myResults: [...state.myResults, newResultObj]
     }))
+  }
+  handleDeleteResult = async (id) => {
+
+    console.log('this is handle delete')
+    await resultService.deleteOne(id);
+    this.handleMyResults()
+
   }
 
   render() {

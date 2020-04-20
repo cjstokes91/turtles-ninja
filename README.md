@@ -1,4 +1,4 @@
-# StudySet
+# Turtles 
 ## Description
 ##### Turtles is a quiz developed for lovers of the ninja turtles universe , you will be able to see how similiar you are to your favorite characters.
 ## Screenshots
