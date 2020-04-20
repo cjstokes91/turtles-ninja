@@ -28,3 +28,6 @@ JavaScipt, React.js, Express.js, JSON, HTML, CSS, Bootstrap, Node, Mongoose, Mon
 - Add character page
 - Add more quizes
 - Dry code
+- Better Quiz Questions
+- Coloring Page 
+- Ability to create quizzes 
