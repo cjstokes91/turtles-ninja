@@ -112,3 +112,96 @@ a {
   margin-right: 70px;
   font-size: xx-large;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  font-family: sans-serif;
+  background-color: white;
+  ;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hidden { 
+  display: none; 
+}
+
+.container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.answerOption {
+  border-top: 1px solid #eee;
+}
+
+.answerOption:hover {
+  background-color: #eefbfe;
+}
+
+.radioCustomButton {
+  position: absolute;
+  width: auto;
+  opacity: 0;
+}
+
+.radioCustomButton,
+.radioCustomLabel {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.radioCustomLabel {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem 2.5rem 1.5rem 5rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.radioCustomButton ~ .radioCustomLabel:before {
+  position: absolute;
+  top: 20px;
+  left: 38px;
+  width: 28px;
+  height: 28px;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.ninja-logo { 
+  width: 75%;
+}
+
+ul {
+  list-style: none;
+  color: rgb(84, 177, 84);
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.paragraph { 
+  background-color: rgb(42, 138, 42);
+  margin-top: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.img { 
+  margin-bottom: 100px;
+}
+
